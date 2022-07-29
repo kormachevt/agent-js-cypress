@@ -1,4 +1,6 @@
 
+## [1.0.0] - 2022-07-29
+
 ## [5.0.4] - 2022-07-12
 ### Fixed
 - 'Error: cannot read property toString of undefined' for _log_ command.
