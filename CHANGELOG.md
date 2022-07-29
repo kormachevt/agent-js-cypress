@@ -1,8 +1,5 @@
 
 ## [5.1.0] - 2022-07-29
-## [1.0.0] - 2022-07-29
-### Added
-- New reporterOption to force end a dangling skipped tests (for example while using a  cypress grep plugin).
 
 ## [5.0.4] - 2022-07-12
 ### Fixed
