@@ -1,11 +1,11 @@
-# @reportportal/agent-js-cypress
+# @kormachevt/agent-js-cypress
 
 agent-js-cypress is a runtime reporter for the [Report Portal](https://github.com/reportportal/reportportal) which provides information about collection run.
 
 ## Install
 
 ```console
-$ npm install @reportportal/agent-js-cypress
+$ npm install @kormachevt/agent-js-cypress
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ Add the following options to cypress.json
 ```json
 
 {
-  "reporter": "@reportportal/agent-js-cypress",
+  "reporter": "@kormachevt/agent-js-cypress",
   "reporterOptions": {
     "endpoint": "http://your-instance.com:8080/api/v1",
     "token": "00000000-0000-0000-0000-000000000000",
@@ -33,7 +33,7 @@ Add the following options to cypress.json
 
 ```javascript
 
-const registerReportPortalPlugin = require('@reportportal/agent-js-cypress/lib/plugin');
+const registerReportPortalPlugin = require('@kormachevt/agent-js-cypress/lib/plugin');
 
 module.exports = (on, config) => registerReportPortalPlugin(on, config);
 
@@ -45,7 +45,7 @@ Add the following to your custom commands file (cypress/support/commands.js):
 
 ```javascript
 
-require('@reportportal/agent-js-cypress/lib/commands/reportPortalCommands');
+require('@kormachevt/agent-js-cypress/lib/commands/reportPortalCommands');
 
 ```
 
@@ -71,6 +71,7 @@ Runs support following options:
 | isLaunchMergeRequired | Allows to merge Cypress run's into one launch in the end of the run. Needs additional setup. See [Manual merge launches](#manual-merge-launches).  |
 | parallel              | Indicates to the reporter that spec files will be executed in parallel. Parameter could be equal boolean values. See [Parallel execution](#parallel-execution) |
 | restClientConfig      | Optional property.<br/> The object with `agent` property for configure [http(s)](https://nodejs.org/api/https.html#https_https_request_url_options_callback) client, may contain other client options eg. `timeout`.<br/> Visit [client-javascript](https://github.com/reportportal/client-javascript) for more details. |
+| forceEndSkippedTests               | Default: `false`. Mocha doesn't emit `test end` event for skipped tests (or sometimes just for a single last one in a suite). If set to `true` reporter will finish this dangling tests with `skipped` status.
 
 ### Overwrite options from config file
 
@@ -257,7 +258,7 @@ folder.
 const cypress = require('cypress');
 const fs = require('fs');
 const glob = require('glob');
-const { mergeLaunches } = require('@reportportal/agent-js-cypress/lib/mergeLaunches');
+const { mergeLaunches } = require('@kormachevt/agent-js-cypress/lib/mergeLaunches');
 
 const cypressConfigFile = 'cypress.json';
 
